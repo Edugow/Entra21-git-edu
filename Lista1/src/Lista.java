@@ -249,7 +249,7 @@ public class Lista {
         String espaco = in.nextLine();
         System.out.println("Digite o sexo da pessoa (Homem ou Mulher, por extenso)");
         String sexo = in.nextLine();
-        if (sexo=="Homem") {
+        if (sexo.equals("Homem")) {
         double ideal = ((72.7*altura)-58.0);
             System.out.println(nome+ "seu peso ideal é"+ideal);}
         else{
