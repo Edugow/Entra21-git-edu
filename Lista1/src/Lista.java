@@ -3,7 +3,7 @@ import org.w3c.dom.ls.LSOutput;
 import java.util.Scanner;
 public class Lista {
     public static void main(String[] args) {
-        exe16();
+        exe19();
     }
 
     public static void exe01() { //exercicio 01
@@ -156,23 +156,22 @@ public class Lista {
         double macas = in.nextDouble();
         if (macas >= 12) {
             System.out.printf("O preço total é: %.2f\n", macas);
-        }
-        else {
+        } else {
             System.out.printf("O preço total é: %.2f\n", (macas * 1.3));
 
         }
     }
 
     public static void exe14() {
-        Scanner in= new Scanner(System.in);
+        Scanner in = new Scanner(System.in);
         System.out.println("Digite o ano atual");
         double atual = in.nextDouble();
         System.out.println("Digite seu ano de nascimento");
         double nasc = in.nextDouble();
-        double idade = atual-nasc;
-        if (idade>=16){
-            System.out.println("Você pode votar este ano"); }
-        else {
+        double idade = atual - nasc;
+        if (idade >= 16) {
+            System.out.println("Você pode votar este ano");
+        } else {
             System.out.println("Você não pode votar esse ano");
         }
     }
@@ -190,17 +189,72 @@ public class Lista {
             System.out.println(n2);
         }
     }
-    public static void exe16(){
+
+    public static void exe16() {
         Scanner in = new Scanner(System.in);
         System.out.println("Digite um valor");
-        double n1  = in.nextDouble();
+        double n1 = in.nextDouble();
         System.out.println("Digite outro valor");
-        double n2  = in.nextDouble();
-        if (n1>n2) {
-            System.out.println(n2 +"->"+ n1);
+        double n2 = in.nextDouble();
+        if (n1 > n2) {
+            System.out.println(n2 + "->" + n1);
+        } else {
+            System.out.println(n1 + "->" + n2);
+        }
+    }
+
+    public static void exe17() {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Digite a hora de início do jogo");
+        double inicio = in.nextDouble();
+        System.out.println("Digite a hora de término do jogo)");
+        double fim = in.nextDouble();
+        double duracao;
+        double duracao2;
+        if (inicio<fim) {
+            duracao=fim-inicio;
+            System.out.println("A duração da partida é de:"+duracao);
         }
         else {
-            System.out.println(n1+"->"+n2 );
+            duracao=inicio-fim;
+            duracao2=24-duracao;
+            System.out.println("A duração da partida é de:"+duracao2);
         }
+    }
+
+    public static void exe18(){
+        Scanner in = new Scanner(System.in);
+        System.out.println("Digite o salário por hora do funcionário.");
+        double salariohora= in.nextDouble();
+        System.out.println("Digite quantas horas o funcionário trabalhou este mês.");
+        double horas = in.nextDouble();
+        double salario = salariohora*horas;
+        if (horas>160){
+            double total=(((salariohora*160))+((horas-160)*(1.5*salariohora)));
+            System.out.println("o salário final é:"+total);
+        }
+        else System.out.println("O salário final é:"+salario);
+    }
+    /*Tendo como dados de entrada o nome, a altura e o sexo (M ou F) de uma pessoa, calcule e mostre seu peso ideal,
+    utilizando as seguintes fórmulas:
+            - para sexo masculino: peso ideal = (72.7 * altura) - 58
+            - para sexo feminino: peso ideal = (62.1 * altura) - 44.7 */
+
+    public static void exe19(){
+        Scanner in = new Scanner(System.in);
+        System.out.println("Digite o nome da pessoa");
+        String nome = in.nextLine();
+        System.out.println("Digite a altura da pessoa");
+        double altura = in.nextDouble();
+        String espaco = in.nextLine();
+        System.out.println("Digite o sexo da pessoa (Homem ou Mulher, por extenso)");
+        String sexo = in.nextLine();
+        if (sexo=="Homem") {
+        double ideal = ((72.7*altura)-58.0);
+            System.out.println(nome+ "seu peso ideal é"+ideal);}
+        else{
+                double ideal = ((62.1 * altura) - 44.7);
+                System.out.println(nome +"seu peso ideal é"+ideal);
+            }
     }
 }
