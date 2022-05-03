@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Lista2 {
-    public static void main(String[] args) {exe12();    }
+    public static void main(String[] args) {exe09();    }
 
         public static void exe01() {
             Scanner in = new Scanner(System.in);
@@ -117,9 +117,8 @@ public class Lista2 {
             String nome = in.nextLine();
             System.out.println("Digite a altura da pessoa");
             double altura = in.nextDouble();
-            String espaco = in.nextLine();
             System.out.println("Digite o sexo da pessoa (Homem ou Mulher, por extenso)");
-            String sexo = in.nextLine();
+            String sexo = in.next();
             if (sexo.equals("Homem")) {
                 double ideal = ((72.7*altura)-58.0);
                 System.out.println(nome+ "seu peso ideal é"+ideal);}
