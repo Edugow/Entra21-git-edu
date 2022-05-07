@@ -28,11 +28,10 @@ public class Resumo {
                         isHealer = false;
                 }
             }
-        }
-    }
-}
 
-/*
+        }
+
+
         String var3 = "Didi you know about the aclaimed MMO FFXIV?";
         int qtde = 0;
         for (int i = 0; i < var3.length(); i++) {
@@ -42,7 +41,6 @@ public class Resumo {
             }
         }
         System.out.println(qtde);
-    }
 
 
         //saída - mensagem ao usuário
@@ -51,12 +49,11 @@ public class Resumo {
         System.out.printf("%d %.2f, %s", 10, 4.67888, "texto"); //exibe mensagem formatada se quebra de linha
 
         // entrada - entrada de usuário PELO CONSOLE
-        Scanner in = new Scanner(System.in);
         in.next(); // espera o usuário digitar, pega tudo o que foi digitado
         in.nextInt(); //espera o usuário digitar, pega os valores inteiros
         in.nextDouble(); //espera o usuário digitar, pega valores decimais
 
-        operações aritméticas
+       /* //operações aritméticas
        var1 = 10 + 10; //soma
         var1 = 10 - 10; //subtração
         var1 = 10 / 10; //divisão
@@ -154,12 +151,37 @@ public class Resumo {
 
         System.out.println(var3.strip()); // strip() remove os espaços do final e do começo do texto
 
-        String[] splitted = var3.split(regex:" ")
+        String[] splitted = var3.split(" ")
         ; // split() irá quebrar o texto no delimitador informado e retornar uma luista dos textos
 
         for (String word : splitted) {
-
+            System.out.println(word);
         }
+        System.out.println(var3.substring(5, 8));
+
+        int[] numeros ={0,1,2,3,4,5,6,7,8,9}; //Iniciando uma lista com valores
+        int[] numeros2 = new int[10]; //iniciando lista vazia
+
+        System.out.println(numeros[6]); // recuperando um valor da lista
+        numeros2[4]= in.nextInt(); //inserindo um valor no array
+        System.out.println(numeros.length); // pegando a quantidade de itens
+        for (int i=0; i<numeros.length; i++){
+            System.out.println(numeros[i]);
+        }
+        int[][] numers3 = {{0,1,2,3,4},{5,6,7,8,9}}; //iniciando uma matriz com valores
+        int[][] numers4 = new int [2][5]; //iniciando matriz sem valores
+        System.out.println(numers3[0][2]); // recuperando o valor de uma matriz
+        numers4[0][0] = 9; //inserindo dados em uma posição da matriz
+
+        System.out.println(numers3.length); //numero de linhas da matriz
+        System.out.println(numers3[0].length); // quantidade de itens na linha da matriz
+
+        for (int i =0; i < numers3.length,int i;
+        i++) {
+            for (int j=0; j < numers3[i].length; j++){
+                System.out.println(numers3[i][j]);
+            }
+        }
+    } */
     }
 }
-*/
