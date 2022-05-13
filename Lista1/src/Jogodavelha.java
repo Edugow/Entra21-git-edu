@@ -123,7 +123,7 @@ public class Jogodavelha {
                 System.out.println("O vencedor é o Player " + player + "!");
                 vencedor = true;
             } else if (cont == 0) {
-                System.out.println("O jogo deu velha!");
+                System.err.println("O jogo deu velha!");
                 vencedor = true;
             }
 
