@@ -94,13 +94,13 @@ public class Jogodavelha {
                         continue;
                     }
                 default:
-                    System.err.println("Digite um valor válido");
+                    System.out.println("Digite um valor válido");
                     continue;
             }
 
             for (int i = 0; i < matriz.length; i++) {
                 for (int j = 0; j < matriz[i].length; j++) {
-                    System.out.print(matriz[i][j] + " ");
+                    System.err.print(matriz[i][j] + " ");
                 }
                 System.out.println("");
             }
