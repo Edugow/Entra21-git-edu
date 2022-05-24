@@ -128,9 +128,6 @@ public class CodigoMorse {
             } else {
                 System.out.println("Digite uma opção válida");
             }
-
         }
-
-
     }
 }

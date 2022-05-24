@@ -9,7 +9,7 @@ public class ExeGabaritoProva {
         Scanner in = new Scanner(System.in);
         System.out.print("Digite o número de alunos da sala: ");
         int numAlunos = in.nextInt();
-        int acertos = 0; 
+        int acertos = 0;
         String[] nomes = new String[numAlunos];
         in.nextLine();
         for (int i = 0; i < numAlunos; i++) {
