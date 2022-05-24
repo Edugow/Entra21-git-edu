@@ -10,5 +10,6 @@ public class HotDog extends Lanche{
         this.adicionarIngrediente("Queijo Cheddar");
         this.adicionarIngrediente("Milho");
         this.adicionarIngrediente("Ervilha");
+        this.tipo = "Hot Dog";
     }
 }
