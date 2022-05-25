@@ -11,6 +11,7 @@ public class Main {
         System.out.println("(2) - X-Burguer");
         System.out.println("(3) - Misto Quente");
         System.out.println("(4) - Hot Dog");
+        System.out.println("(5) - Mini Pizza - Calabresa");
         int escolha = in.nextInt();
         Lanche lanche = null;
         switch (escolha) {
@@ -26,6 +27,9 @@ public class Main {
             case 4:
                 lanche = new HotDog();
                 break;
+            case 5:
+                lanche = new MiniPizza();
+                break;
             default:
                 System.err.println("Escolha uma opção válida!");
 
@@ -35,6 +39,18 @@ public class Main {
             in.nextLine();
             String aberto = in.next();
             ((XBurguer) lanche).aberto = aberto.equalsIgnoreCase("S");
+        }
+        if (escolha == 5){
+            System.out.println("Borda recheada: (S/N)");
+            in.nextLine();
+            String borda = in.next();
+            MiniPizza miniPizza = ((MiniPizza) lanche);
+            miniPizza.bordaRecheada = borda.equalsIgnoreCase("S");
+            if (miniPizza.bordaRecheada) {
+                System.out.println("Digite o sabor da borda");
+                in.nextLine();
+                miniPizza.saborBorda= in.nextLine();
+            }
         }
         System.out.println("Informe o valor do lanche: R$");
         lanche.valor = in.nextDouble();
