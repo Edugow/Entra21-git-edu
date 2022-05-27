@@ -12,6 +12,7 @@ public class Main {
         System.out.println("(3) - Misto Quente");
         System.out.println("(4) - Hot Dog");
         System.out.println("(5) - Mini Pizza - Calabresa");
+
         int escolha = in.nextInt();
         Lanche lanche = null;
         switch (escolha) {
@@ -34,23 +35,43 @@ public class Main {
                 System.err.println("Escolha uma opção válida!");
 
         }
-        if (escolha == 1 || escolha == 2) {
-            System.out.println("Lanche aberto? (S/N)");
-            in.nextLine();
-            String aberto = in.next();
-            ((XBurguer) lanche).aberto = aberto.equalsIgnoreCase("S");
-        }
-        if (escolha == 5){
+        in.nextLine();
+        if (lanche instanceof Sanduiche) {
+
+            System.out.println("Voce Quer adicionais para o seu Lanche?(S/N)");
+            String querAdicionais = in.nextLine();
+            if (querAdicionais.equalsIgnoreCase("S")) {
+                int contadorAdicionais = 10;
+                while (contadorAdicionais > 0) {
+                    System.out.println("Digite o adicional desejado (N se não quiser mais adicionais)");
+                    System.out.println("Você ainda tem " + contadorAdicionais + " adicionais");
+                    String adicional = in.nextLine();
+                    if (adicional.equalsIgnoreCase("N")) {
+                        break;
+                    } else {
+                        ((Sanduiche) lanche).adicionarAdicional(adicional);
+                    }
+                    contadorAdicionais--;
+                }
+            }
+            if (lanche instanceof XBurguer) {
+                System.out.println("Lanche aberto? (S/N)");
+                String aberto = in.next();
+                ((XBurguer) lanche).aberto = aberto.equalsIgnoreCase("S");
+            }
+        } else {
             System.out.println("Borda recheada: (S/N)");
-            in.nextLine();
-            String borda = in.next();
+            String borda = in.nextLine();
+
             MiniPizza miniPizza = ((MiniPizza) lanche);
             miniPizza.bordaRecheada = borda.equalsIgnoreCase("S");
             if (miniPizza.bordaRecheada) {
                 System.out.println("Digite o sabor da borda");
-                in.nextLine();
-                miniPizza.saborBorda= in.nextLine();
+                miniPizza.saborBorda = in.nextLine();
             }
+        }
+        if (escolha < 5) {
+
         }
         System.out.println("Informe o valor do lanche: R$");
         lanche.valor = in.nextDouble();
