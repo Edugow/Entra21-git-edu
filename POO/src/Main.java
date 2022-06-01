@@ -1,17 +1,22 @@
-import classes.*;
+import classes.lanches.*;
 
-import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
+    public static Scanner in = new Scanner(System.in);
+
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
+        montarLanche();
+    }
+
+    private static void montarLanche() {
         System.out.println("-MENU: Escolha uma opção-");
         System.out.println("(1) - X-Salada");
         System.out.println("(2) - X-Burguer");
         System.out.println("(3) - Misto Quente");
         System.out.println("(4) - Hot Dog");
-        System.out.println("(5) - Mini Pizza - Calabresa");
+        System.out.println("(5) - Mini Pizza");
+        System.out.println("(6) - Pizza");
 
         int escolha = in.nextInt();
         Lanche lanche = null;
@@ -31,9 +36,11 @@ public class Main {
             case 5:
                 lanche = new MiniPizza();
                 break;
+            case 6:
+                lanche = new Pizza();
+                break;
             default:
                 System.err.println("Escolha uma opção válida!");
-
         }
         in.nextLine();
         if (lanche instanceof Sanduiche) {
@@ -57,24 +64,59 @@ public class Main {
             if (lanche instanceof XBurguer) {
                 System.out.println("Lanche aberto? (S/N)");
                 String aberto = in.next();
-                ((XBurguer) lanche).aberto = aberto.equalsIgnoreCase("S");
+                ((XBurguer) lanche).setAberto(aberto.equalsIgnoreCase("S"));
             }
         } else {
-            System.out.println("Borda recheada: (S/N)");
-            String borda = in.nextLine();
-
+            System.out.println("Qual sabor você deseja?");
+            System.out.println("(1) - Quatro Queijos");
+            System.out.println("(2) - Cababresa");
+            System.out.println("(3) - Frango com Catupiry");
+            System.out.println("(4) - Marguerita");
+            System.out.println("(5) - Portuguesa");
+            int sabor = in.nextInt();
+            in.nextLine();
             MiniPizza miniPizza = ((MiniPizza) lanche);
-            miniPizza.bordaRecheada = borda.equalsIgnoreCase("S");
-            if (miniPizza.bordaRecheada) {
+            switch (sabor) {
+                case 1:
+                    miniPizza.adicionarSaborEIngradientes("4 Queijos");
+                    break;
+                case 2:
+                    miniPizza.adicionarSaborEIngradientes("Calabresa");
+                    break;
+                case 3:
+                    miniPizza.adicionarSaborEIngradientes("Frango com Catupiry");
+                    break;
+                case 4:
+                    miniPizza.adicionarSaborEIngradientes("Marguerita");
+                    break;
+                case 5:
+                    miniPizza.adicionarSaborEIngradientes("portuguesa");
+                    break;
+                default:
+                    System.out.println("Escolha um sabor válido");
+            }
+
+            if (lanche instanceof Pizza) {
+                System.out.println("Informe o tamanho da pizza: ");
+                System.out.println("XS - Broto");
+                System.out.println("XM - Pequena");
+                System.out.println("MD - Média");
+                System.out.println("LG - Grande");
+                System.out.println("XL - Família");
+                ((Pizza) lanche).setTamanho(in.nextLine().toUpperCase());
+            }
+            System.out.println("Borda recheada: (S/N)");
+            String aberto = in.nextLine();
+            miniPizza.setBordaRecheada(aberto.equalsIgnoreCase("S"));
+            if (miniPizza.isBordaRecheada()) {
                 System.out.println("Digite o sabor da borda");
-                miniPizza.saborBorda = in.nextLine();
+                miniPizza.setSaborBorda(in.nextLine());
             }
         }
         if (escolha < 5) {
-
         }
         System.out.println("Informe o valor do lanche: R$");
-        lanche.valor = in.nextDouble();
+        lanche.setValor(in.nextDouble());
         lanche.montarComanda();
     }
 }

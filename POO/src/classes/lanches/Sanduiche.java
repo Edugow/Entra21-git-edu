@@ -1,4 +1,4 @@
-package classes;
+package classes.lanches;
 
 import java.util.Locale;
 
