@@ -117,6 +117,5 @@ public class Main {
         }
         System.out.println("Informe o valor do lanche: R$");
         lanche.setValor(in.nextDouble());
-        lanche.montarComanda();
     }
 }

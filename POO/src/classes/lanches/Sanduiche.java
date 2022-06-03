@@ -13,16 +13,12 @@ public abstract class Sanduiche extends Lanche {
             }
         }
     }
-    @Override
-    public void montarComanda() {
-        super.montarComanda(); //Chamar comportamento da superclasse da qual esta é estendida
-        if (this.adicionais[0] != null) {
-            System.out.println("---ADICIONAIS---");
-            for (String adicional : adicionais) {
-                if (adicional != null) {
-                    System.out.println(adicional.toUpperCase(Locale.ROOT));
-                }
-            }
-        }
+
+    public String[] getAdicionais() {
+        return adicionais;
+    }
+    public void setAdicionais(String[] adicionais) {
+        this.adicionais = adicionais;
     }
 }
+

@@ -1,20 +1,66 @@
 package classes.pedido;
 
-import classes.lanches.Lanche;
+import classes.lanches.*;
+import jdk.swing.interop.SwingInterOpUtils;
 
 public class Pedido {
     private Lanche[] lanches = new Lanche[10];
 
     public void imprimirComanda() {
-        //TODO
+        for (Lanche lan : this.getLanches()) {
+            if (lan != null) {
+                if (lan instanceof MiniPizza) {
+                    MiniPizza mp = ((MiniPizza) lan);
+                    System.out.println("====" + lan.getTipo() + " - " + mp.getSabor() + "====");
+                    if (mp.isBordaRecheada()) {
+                        System.out.println("---BORDA RECHEADA DE " + mp.getSaborBorda().toUpperCase() + "---");
+                    }
+                    if (lan instanceof Pizza) {
+                        System.out.println("Tamanho: " + ((Pizza) lan).getTamanho());
+                    }
+                } else {
+                    System.out.println("====" + lan.getTipo() + "====");
+                }
+                if (lan instanceof XBurguer){
+                    if (((XBurguer)lan).isAberto()) {
+                        System.out.println("-- LANCHE ABERTO --");
+                    }
+                }
+                System.out.printf("Valor: R$%.2f\n", lan.getValor());
+                System.out.println("-INGREDIENTES-");
+                for (String ingrediente : lan.getIngredientes()) {
+                    if (ingrediente != null) {
+                        System.out.println(ingrediente);
+                    }
+                }
+            }
+            if (lan instanceof Sanduiche) {
+                Sanduiche s = (Sanduiche) lan;
+                if (s.getAdicionais()[0] != null) {
+                    System.out.println("---ADICIONAIS---");
+                    for (String adicional : s.getAdicionais()) {
+                        if (adicional != null) {
+                            System.out.println(adicional);
+                        }
+                    }
+                }
+            }
+        }
+        System.out.printf("Valor total do pedido: R$%.2f\n", this.calcularValorTotal());
+        System.out.println("---------------------------");
     }
 
-    public double calcularValorToral() {
-        //TODO
-        return 0;
+    public double calcularValorTotal() {
+        double valorTotal = 0.0;
+        for (Lanche lan : this.getLanches()) {
+            if (lan != null) {
+                valorTotal += lan.getValor();
+            }
+        }
+        return valorTotal;
     }
 
-    public void adicionarLanche(String lanche) {
+    public void adicionarLanche(Lanche lanche) {
         for (int i = 0; i < 10; i++) {
             if (this.lanches[i] == null) {
                 this.lanches[i] = lanche;
@@ -22,7 +68,8 @@ public class Pedido {
             }
         }
     }
-    public Lanche[] getLanches(){
+
+    public Lanche[] getLanches() {
         return this.lanches;
     }
 }

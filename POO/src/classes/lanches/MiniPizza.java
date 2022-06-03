@@ -37,18 +37,7 @@ public class MiniPizza extends Lanche {
                 this.adicionarIngrediente("ovo");
                 break;
         }
-
     }
-
-    @Override
-    public void montarComanda() {
-        super.montarComanda();
-        if (this.bordaRecheada) {
-            System.out.println("---BORDA RECHEADA DE " + this.getSaborBorda().toUpperCase() + "---");
-        }
-    }
-
-
     public void setBordaRecheada(boolean bordaRecheada) {
         this.bordaRecheada = bordaRecheada;
     }
