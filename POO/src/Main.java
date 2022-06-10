@@ -104,6 +104,7 @@ public class Main {
                 System.out.println("LG - Grande");
                 System.out.println("XL - Família");
                 ((Pizza) lanche).setTamanho(in.nextLine().toUpperCase());
+                System.out.println();
             }
             System.out.println("Borda recheada: (S/N)");
             String aberto = in.nextLine();

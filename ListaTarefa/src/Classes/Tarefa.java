@@ -1,6 +1,5 @@
 package Classes;
 
-
 import java.util.UUID;
 
 public class Tarefa {
@@ -10,16 +9,39 @@ public class Tarefa {
     private boolean completa;
     private int ordem;
 
-    //MÉTODOS
     public Tarefa() {
         this.setUuid(UUID.randomUUID().toString());
     }
-
     public void completar() {
-        setCompleta(true);
+        this.setCompleta(true);
+        for (ChecklistItem item : this.getChecklist()) {
+            if (item != null) {
+                item.completar();
+            }
+        }
+    }
+    public boolean temChecklist() {
+        return this.getChecklist() != null;
+        }
+
+    public void criarChecklist(int tamanho) {
+        this.setChecklist(new ChecklistItem[tamanho]);
+
     }
 
-    //GETTERS E SETTERS (pODE USAR INSERIR OS GETTERS E SETTERS)
+    public boolean adicionarChecklistItem(ChecklistItem item){
+        for (int i = 0; i < this.getChecklist().length; i++) {
+            if (this.getChecklist()[i] == null) {
+                this.getChecklist()[i] = item;
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    // Getter & Setter
+
     public void setUuid(String uuid) {
         this.uuid = uuid;
     }
@@ -36,27 +58,35 @@ public class Tarefa {
         return this.nome;
     }
 
+    public String getDescricao() {
+        return descricao;
+    }
+
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
 
-    public String getDescricao() {
-        return this.descricao;
+    public boolean isCompleta() {
+        return completa;
     }
 
     public void setCompleta(boolean completa) {
         this.completa = completa;
     }
 
-    public boolean isCompleta() {
-        return this.completa;
+    public int getOrdem() {
+        return ordem;
     }
 
     public void setOrdem(int ordem) {
         this.ordem = ordem;
     }
-    public int getOrdem() {
-        return this.ordem;
+
+    public ChecklistItem[] getChecklist() {
+        return checklist;
     }
 
+    public void setChecklist(ChecklistItem[] checklist) {
+        this.checklist = checklist;
+    }
 }
