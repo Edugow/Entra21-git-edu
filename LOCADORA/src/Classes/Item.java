@@ -3,45 +3,44 @@ package Classes;
 import java.util.Scanner;
 
 public abstract class Item {
-
     private String titulo;
     private String genero;
-    private Avaliacao[] avaliacoes = new Avaliacao[30];
-    public double valor;
-
-    //MÉTODOS
-    public void avaliar() {
-        Scanner in = new Scanner(System.in);
-        Avaliacao a = new Avaliacao();
-        System.out.println("Informe o nome do avaliador");
+    private double valor;
+    private Avaliacao[] avaliacoes=new Avaliacao[30];
+    public abstract void montarItem(Scanner in);
+    public abstract void mostrarItem();
+    public void avaliar(){
+        Scanner in=new Scanner(System.in);
+        Avaliacao a=new Avaliacao();
+        System.out.print("Informe seu nome: ");
         a.setNome(in.nextLine());
-        System.out.println("Qual a sua nota para o Filme/Livro (Nota de 0 a 10: )");
+        System.out.print("Qual sua nota para o filme/livro: (0 a 5): ");
         a.setRating(in.nextDouble());
         in.nextLine();
-        System.out.println("Informe algum feedback (opcional)");
+        System.out.print("Digite seu feedback: ");
         a.setFeedback(in.nextLine());
-        for (int i = 0; i < getAvaliacoes().length; i++) {
-            if (getAvaliacoes()[i] == null) {
-                getAvaliacoes()[i] = a;
+        for (int i=0;i<getAvaliacoes().length;i++){
+            if (getAvaliacoes()[i]==null){
+                getAvaliacoes()[i]=a;
                 break;
             }
         }
     }
-
-    public double getTotalRating() {
-        double soma = 0;
-        int contador = 0;
-        for (Avaliacao a : getAvaliacoes()) {
-            if (a != null) {
-                soma += a.getRating();
-                contador++;
+    public double getTotalRating(){
+        double totalRating=0.0;
+        int qtdAvaliacoes=0;
+        for (Avaliacao a:avaliacoes){
+            if (a!=null){
+                totalRating+=a.getRating();
+                qtdAvaliacoes+=1;
             }
         }
-        return soma / contador;
-
+        return totalRating/qtdAvaliacoes;
     }
 
-    //GETTER E SETTERS
+
+    //GETTERS E SETTERS
+
     public String getTitulo() {
         return titulo;
     }
@@ -51,7 +50,6 @@ public abstract class Item {
     }
 
     public String getGenero() {
-
         return genero;
     }
 
@@ -75,4 +73,3 @@ public abstract class Item {
         this.avaliacoes = avaliacoes;
     }
 }
-

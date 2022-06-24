@@ -1,61 +1,52 @@
 package Classes;
 
+import java.util.Locale;
+
 public class Estante {
     private int capMaxima;
-    private Item[] itens;
+    private Item[] itensEstante;
 
 
     public Estante(int capacidadeMaxima) {
         setCapMaxima(capacidadeMaxima);
-        setItens(new Item[capMaxima]);
-
+        setItensEstante(new Item[capacidadeMaxima]);
     }
-
-    public boolean estanteCheia() {
-        return this.quantidadeItens() == this.getCapMaxima();
-
+    public boolean estanteCheia(){
+        return this.getCapMaxima()==this.quantidadeItens();
     }
-
-    public int quantidadeItens() {
-        int contador = 0;
-        for (Item i : getItens()) {
-            if (i != null) {
-                contador++;
+    public int quantidadeItens(){
+        int quantidade=0;
+        for (Item item:getItensEstante()){
+            if (item!=null){
+                quantidade++;
             }
         }
-        return contador;
+        return quantidade;
     }
-
-    public Item buscarItem(String titulo) {
-        for (Item i : this.getItens()) {
-            if (i != null && i.getTitulo().toLowerCase().contains(titulo.toLowerCase())) {
-                return i;
+    public Item buscarItem(String titulo){
+        for (Item item:getItensEstante()){
+            if (item!=null&&item.getTitulo().toLowerCase().contains(titulo.toLowerCase())){
+                return item;
             }
         }
         return null;
     }
-
-    public boolean adicionarItem(Item item) {
-        for (int i = 0; i < this.getItens().length; i++) {
-            if (this.getItens()[i] == null) {
-                this.getItens()[i] = item;
+    public boolean adicionarItem(Item item){
+        for (int i=0;i<getCapMaxima();i++){
+            if (getItensEstante()[i]==null){
+                getItensEstante()[i]=item;
                 return true;
             }
         }
         return false;
     }
-
-    public Item removerItem(int posicao) {
-        Item i = this.getItens()[posicao];
-        this.getItens()[posicao] = null;
-        return i;
+    public Item removerItem(int posicao){
+        Item item=getItensEstante()[posicao];
+        getItensEstante()[posicao]=null;
+        return item;
     }
-
     //GETTERS E SETTERS
-
-
     public int getCapMaxima() {
-
         return capMaxima;
     }
 
@@ -63,13 +54,11 @@ public class Estante {
         this.capMaxima = capMaxima;
     }
 
-    public Item[] getItens() {
-
-        return itens;
+    public Item[] getItensEstante() {
+        return itensEstante;
     }
 
-    public void setItens(Item[] itens) {
-        this.itens = itens;
+    public void setItensEstante(Item[] itensEstante) {
+        this.itensEstante = itensEstante;
     }
-
 }

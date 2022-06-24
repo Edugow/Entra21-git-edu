@@ -7,12 +7,16 @@ public abstract class Lanche {
 
     public void adicionarIngrediente(String ingrediente) {
         for (int i = 0; i < 10; i++) {
-            if (this.ingrediente[i] == null) {
-                this.ingrediente[i] = ingrediente;
+            if (this.ingredientes[i] == null) {
+                this.ingredientes[i] = ingrediente;
                 break;
             }
         }
     }
+
+    public abstract void mostrarDetalhesComanda();
+
+
     public String[] getIngredientes(){
         return ingredientes;
     }

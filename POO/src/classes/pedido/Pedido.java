@@ -1,10 +1,11 @@
 package classes.pedido;
 
 import classes.lanches.*;
+import java.util.ArrayList;
 import jdk.swing.interop.SwingInterOpUtils;
 
 public class Pedido {
-    private Lanche[] lanches = new Lanche[10];
+    private ArrayList<Lanche> lanches = new ArrayList<>();
 
     public void imprimirComanda() {
         for (Lanche lan : this.getLanches()) {
@@ -21,8 +22,8 @@ public class Pedido {
                 } else {
                     System.out.println("====" + lan.getTipo() + "====");
                 }
-                if (lan instanceof XBurguer){
-                    if (((XBurguer)lan).isAberto()) {
+                if (lan instanceof XBurguer) {
+                    if (((XBurguer) lan).isAberto()) {
                         System.out.println("-- LANCHE ABERTO --");
                     }
                 }
@@ -33,16 +34,12 @@ public class Pedido {
                         System.out.println(ingrediente);
                     }
                 }
-            }
+
             if (lan instanceof Sanduiche) {
                 Sanduiche s = (Sanduiche) lan;
-                if (s.getAdicionais()[0] != null) {
                     System.out.println("---ADICIONAIS---");
                     for (String adicional : s.getAdicionais()) {
-                        if (adicional != null) {
                             System.out.println(adicional);
-                        }
-                    }
                 }
             }
         }
@@ -53,23 +50,16 @@ public class Pedido {
     public double calcularValorTotal() {
         double valorTotal = 0.0;
         for (Lanche lan : this.getLanches()) {
-            if (lan != null) {
                 valorTotal += lan.getValor();
-            }
         }
         return valorTotal;
     }
 
     public void adicionarLanche(Lanche lanche) {
-        for (int i = 0; i < 10; i++) {
-            if (this.lanches[i] == null) {
-                this.lanches[i] = lanche;
-                break;
-            }
-        }
+        this.lanches.add(lanche);
     }
 
-    public Lanche[] getLanches() {
+    public ArrayList<Lanche> getLanches() {
         return this.lanches;
     }
 }

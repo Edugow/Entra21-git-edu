@@ -11,7 +11,7 @@ public class XBurguer extends Sanduiche {
         this.setTipo("XBurguer");
     }
 
-    }
+
     public void setAberto(boolean aberto) {
         this.aberto = aberto;
     }
