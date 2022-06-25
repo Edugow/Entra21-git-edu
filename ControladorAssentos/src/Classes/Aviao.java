@@ -1,9 +1,8 @@
 package Classes;
-
 import java.util.ArrayList;
 
 public class Aviao implements MeioTransporte {
-    private ArrayList<AssentoVoo> assentos = new ArrayList<>;
+    private ArrayList<AssentoVoo> assentos = new ArrayList<>();
 
     public ArrayList<AssentoVoo> getAssentos() {
         return assentos;
@@ -15,12 +14,23 @@ public class Aviao implements MeioTransporte {
 
     @Override
     public boolean verificarOcupacao(String assento) {
-        return false;
+        for (AssentoVoo a : this.assentos) {
+            if (a.getCodigo().equalsIgnoreCase(assento)){
+                return a.isOcupado();
+            }
+        }
+       return false;
     }
 
     @Override
     public int quantidadeLivre() {
-        return 0;
+        int livres = 0;
+        for (AssentoVoo a : this.assentos){
+            if (!a.isOcupado()){
+                livres++;
+            }
+        }
+        return livres;
     }
 
     @Override
@@ -30,11 +40,22 @@ public class Aviao implements MeioTransporte {
 
     @Override
     public Assento getAssento(String assento) {
+        for (AssentoVoo a : this.assentos) {
+            if(a.getCodigo().equalsIgnoreCase(assento)){
+                return a;
+            }
+        }
         return null;
     }
 
-    @Override
-    public Assento getAssento() {
+    public Assento getAssento(String assento, String classe) {
+        for(AssentoVoo a : assentos){
+            if (a.getCodigo().equalsIgnoreCase(assento)
+                && a.getClasse().equalsIgnoreCase(classe)){
+                return a;
+            }
+        }
         return null;
     }
+
 }

@@ -8,5 +8,4 @@ public interface MeioTransporte {
     public void mostrarAssentos();
     public Assento getAssento(String assento);
 
-    Assento getAssento();
 }
