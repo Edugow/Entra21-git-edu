@@ -6,7 +6,7 @@ public class AssentoVoo extends Assento {
 
     private String codigo;
 
-    private String classe;
+    private ClasseAssentoVoo classe;
 
     public String getCodigo() {
         return codigo;
@@ -16,11 +16,11 @@ public class AssentoVoo extends Assento {
         this.codigo = codigo;
     }
 
-    public String getClasse() {
+    public ClasseAssentoVoo getClasse() {
         return classe;
     }
 
-    public void setClasse(String classe) {
+    public void setClasse(ClasseAssentoVoo classe) {
         this.classe = classe;
     }
 }

@@ -86,7 +86,7 @@ public class Main {
                 i.avaliar();
                 break;
             case 2:
-                if (i.getAvaliacoes()[0] == null) {
+                if (i.getAvaliacoes().isEmpty()) {
                     System.out.println("Ainda não avaliaram esse item! Para avaliá-lo agora, digite 1. Se quiser voltar ao menu, digite qualquer outra coisa: ");
                     if (in.nextLine().equals("1")) {
                         i.avaliar();
@@ -94,9 +94,7 @@ public class Main {
                 } else {
                     System.out.println("---------------------\nAVALIAÇÕES\n---------------------");
                     for (Avaliacao a : i.getAvaliacoes()) {
-                        if (a != null) {
                             System.out.println(a.getNome() + " - " + a.getRating() + "\n-----------\nFeedback: " + a.getFeedback() + "\n---------------------");
-                        }
                     }
                     System.out.println("Nota geral: " + i.getTotalRating());
                     break;
@@ -129,13 +127,10 @@ public class Main {
             System.out.println("A estante está cheia!");
         }
         for (int j = 0; j < 5; j++) {
-
-            Item itemf = estante.getItensEstante()[j];
-            if (itemf != null) {
+            Item itemf = estante.getItensEstante().get(j);
                 System.out.println("---------------------------");
                 itemf.mostrarItem();
                 System.out.println("Posição na estante: " + j);
-            }
         }
         System.out.println("------------------------------------------------------");
     }

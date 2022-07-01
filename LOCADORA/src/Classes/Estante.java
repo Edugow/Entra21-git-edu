@@ -1,49 +1,39 @@
 package Classes;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 public class Estante {
     private int capMaxima;
-    private Item[] itensEstante;
+    private ArrayList<Item> itens = new ArrayList<>();
 
 
     public Estante(int capacidadeMaxima) {
         setCapMaxima(capacidadeMaxima);
-        setItensEstante(new Item[capacidadeMaxima]);
     }
     public boolean estanteCheia(){
         return this.getCapMaxima()==this.quantidadeItens();
     }
     public int quantidadeItens(){
-        int quantidade=0;
-        for (Item item:getItensEstante()){
-            if (item!=null){
-                quantidade++;
-            }
-        }
-        return quantidade;
+        return this.itens.size();
     }
     public Item buscarItem(String titulo){
-        for (Item item:getItensEstante()){
-            if (item!=null&&item.getTitulo().toLowerCase().contains(titulo.toLowerCase())){
-                return item;
+        for (Item i:getItensEstante()){
+            if (i.getTitulo().toLowerCase().contains(titulo.toLowerCase())){
+                return i;
             }
         }
-        return null;
     }
     public boolean adicionarItem(Item item){
-        for (int i=0;i<getCapMaxima();i++){
-            if (getItensEstante()[i]==null){
-                getItensEstante()[i]=item;
-                return true;
-            }
+        if (!estanteCheia()) {
+            this.itens.add(item);
+            return true;
+        } else{
+            return false;
         }
-        return false;
     }
     public Item removerItem(int posicao){
-        Item item=getItensEstante()[posicao];
-        getItensEstante()[posicao]=null;
-        return item;
+        return this.itens.remove(posicao);
     }
     //GETTERS E SETTERS
     public int getCapMaxima() {
@@ -54,11 +44,11 @@ public class Estante {
         this.capMaxima = capMaxima;
     }
 
-    public Item[] getItensEstante() {
-        return itensEstante;
+    public ArrayList<Item> getItensEstante() {
+        return itens;
     }
 
-    public void setItensEstante(Item[] itensEstante) {
-        this.itensEstante = itensEstante;
+    public void setItens(ArrayList<Item> itensEstante) {
+        this.itens = itensEstante;
     }
 }
