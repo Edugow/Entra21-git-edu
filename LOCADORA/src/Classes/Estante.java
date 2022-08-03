@@ -17,12 +17,13 @@ public class Estante {
     public int quantidadeItens(){
         return this.itens.size();
     }
-    public Item buscarItem(String titulo){
-        for (Item i:getItensEstante()){
-            if (i.getTitulo().toLowerCase().contains(titulo.toLowerCase())){
+    public Item buscarItem(String titulo) {
+        for (Item i : getItensEstante()) {
+            if (i.getTitulo().toLowerCase().contains(titulo.toLowerCase())) {
                 return i;
             }
         }
+        return null;
     }
     public boolean adicionarItem(Item item){
         if (!estanteCheia()) {
