@@ -15,10 +15,43 @@ body {
     color: white;
 } */
 
+.edit-cell{
+    text-align: center;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.w-40{
+    width: 40%;
+}
+
+.edit-cell a {
+    text-decoration: none;
+    background-color: rgb(43, 160, 228);
+    padding: 4px 8px;
+    margin: 2px 0;
+    display: inline-block;
+    color: white;
+    border-radius: 6px;
+}
+
+.edit-cell a:hover {
+    text-decoration: none;
+    background-color: rgb(37, 134, 190);
+}
+
+table.contained {
+    margin: 0 15%;
+    width: 70%;
+}
+
 table {
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     width: 100%;
     border-spacing: 0;
+    border-collapse: collapse
 }
 
 th { 
@@ -27,9 +60,53 @@ th {
     padding: 8px 4px;
     padding-left: 0;
     
+}
+
+tr {
+    border-color:#b3b3b3;
+    border-bottom: 1px solid #b3b3b3;
 
 }
 
+tfoot tr {
+    border-bottom: 0;
+}
+
+tfoot tr.sum td{
+    text-align: right;
+}
+
+small {
+    font-size: 12px;
+}
 * {
     font-family: 'Poppins';
+}
+
+.index {
+    text-align: center;
+}
+.index a{
+    text-align: center;
+    background-color: rgb(27, 117, 201);
+    padding: 4px 8px;
+    margin: 2px 0;
+    display: inline-block;
+    border-radius: 6px;
+    color: black;
+}
+
+.index a:hover {
+    text-decoration: none;
+    background-color: rgb(37, 134, 190);
+}
+
+body {
+ background-color:  rgb(68, 157, 240);
+}
+
+.title{
+        display: block;
+        margin: 0 auto;
+        text-align: center;
 }
