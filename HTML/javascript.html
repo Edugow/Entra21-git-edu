@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' href='css/styles.css'>
+
+    <script type="text/javascript">
+        function submitMsg() {
+            let msg = document.getElementById("input-txt").value;
+            document.getElementById("input-txt").value =" ";
+
+            let p = document.createElement("p");
+            p.textContent=msg
+
+            document.getElementById("texto").appendChild(p);
+        }
+
+        document.onreadystatechange=function() {
+            document.getElementById("input-txt")
+            .addEventListener ("keydown", function(e) {
+                if(e.key === "Enter" || e.keyValue ===13) {
+                    submitMsg();
+                }
+            });
+
+        }
+
+    </script>
+    
+</head>
+<body>
+    <div id="texto"></div>
+    <p id="texto"></p>
+    <input type="text" name="teste" id="input-txt">
+    <button onclick="submitMsg()">Enviar</button>
+    
+
+
+
+</body>
+</html>

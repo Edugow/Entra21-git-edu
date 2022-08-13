@@ -11,24 +11,32 @@
     <link rel="stylesheet" href="Styles.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     </head>
+    <script type="text/javascript">
+        function load() {
+            let guess = Math.floor(Math.random() *11);
+            console.log(guess);
+            let userInput= -1;
+            while(guess != userInput){
+                userInput=prompt("Take a wild guess");
+            }
+
+        }
+       
+        window.onload = load;
+    </script>
 <body>
     <aside>
         <h2 class="title">Minha Primeira Pagina WEB</h2>
         <div class="index">
-                <a href="Titulos.html">Títulos</a>
-                <a href="Paragrafos.html">Parágrafos</a>
-                <a href="Imagens.html">Imagens</a>
-                <a href="Links.html">Links</a>
-                <a href="Listas.html">Listas</a>
-                <a href="Tabelas.html">Tabelas</a>
-                <a href="Formularios.html">Formulários</a>
-                <body><li>
-                <img src="https://c.tenor.com/yLItIpTDjNsAAAAC/rocking-out-eddie-munson.gif"
-                width="400";
-                height="300";
-                ></li> Massa, mas morreu pra nada
-            </body>
+            <a href="Titulos.html">Títulos</a>
+            <a href="Paragrafos.html">Parágrafos</a>
+            <a href="Imagens.html">Imagens</a>
+            <a href="Links.html">Links</a>
+            <a href="Listas.html">Listas</a>
+            <a href="Tabelas.html">Tabelas</a>
+            <a href="Formularios.html">Formulários</a>
             </div>
         </ul>
+        <button onClick="onClick()">Contar</button>
 </body>
 </html>

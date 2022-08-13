@@ -98,15 +98,49 @@ small {
 
 .index a:hover {
     text-decoration: none;
-    background-color: rgb(37, 134, 190);
+    background-color: rgb(160, 188, 204);
 }
 
 body {
- background-color:  rgb(68, 157, 240);
+ background-color:  rgb(194, 206, 218);
 }
 
 .title{
-        display: block;
-        margin: 0 auto;
-        text-align: center;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
 }
+
+@media only screen and (max-width: 600px) {
+    /* html, body {
+        background-color: darkseagreen;
+    } */
+    ul.index {
+        margin: 0 48px;
+    }
+    .index a {
+        display:block;
+    } 
+}
+
+.titulo {
+    margin: 45px 100px;
+    display: block;
+    background-color: rgb(184, 209, 230);
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 15px 15px 15px rgba(58, 61, 238, 0.4);
+    padding: 45px;
+}
+.titulos {
+    text-align: center;
+}
+
+.formulario {
+    text-align: center;
+    background-image:url(https://img.freepik.com/free-photo/living-room-product-backdrop-interior-background_53876-147964.jpg?w=2000);
+    padding: 15px;
+}
+
+
+

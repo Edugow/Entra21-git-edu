@@ -11,3 +11,11 @@ div.footer {
     padding: 24px;
     background-color: rgb(124, 212, 212);
 }
+
+a.mylink {
+    font-size: 25px;
+}
+
+.mt-1 {
+    margin-top: 100 !important;
+  }
