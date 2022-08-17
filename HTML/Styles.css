@@ -20,11 +20,11 @@ body {
 }
 
 .w-50 {
-    width: 50%;
+    width: 42%;
 }
 
 .w-40{
-    width: 40%;
+    width: 42%;
 }
 
 .edit-cell a {
@@ -141,6 +141,51 @@ body {
     background-image:url(https://img.freepik.com/free-photo/living-room-product-backdrop-interior-background_53876-147964.jpg?w=2000);
     padding: 15px;
 }
+.btn {
+    border: 0;
+    background-color: transparent;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.btn.btn-success{
+background-color: rgb(75, 191, 75);
+}
+
+.btn.btn-success:hover{
+    background-color: rgb(100, 220, 100);
+}
+.btn.btn-success:active{
+    background-color: rgb(54, 153, 54);
+}
+
+.btn.btn-warning{
+    background-color: rgb(228, 209, 62);
+}
+
+.btn.btn.btn-warning:hover {
+    background-color: rgb(247, 227, 77);
+}
+.btn.btn-warning :active {
+    background-color: rgb(179, 163, 43);
+}
+.btn.btn-danger {
+    background-color: rgb(228, 62, 62)
+}
+.btn.btn-danger :hover{
+    background-color: rgb(247, 77, 77)
+}
+.btn.btn-danger :active{
+    background-color: rgb(179, 43, 43)
+}
 
 
+.edit-cell{
+    text-align: center;
+}
+
+.edit-cell button{
+    display: inline-block;
+}
 
